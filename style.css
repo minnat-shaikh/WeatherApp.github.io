@@ -90,5 +90,13 @@ body{
 @media screen and (max-width: 600px) {
     .app-main{
        width: 90%;
+       margin-top: 50%;
 } 
+}
+
+@media screen and (max-height: 844px) {
+    .weather-body{
+        height: 50%;
+    }
+
 }
