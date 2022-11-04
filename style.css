@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-*{
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-image: url(/images/clear.jpg);
     height: 100vh;
     overflow: hidden;
@@ -15,7 +16,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
-.app-main{
+.app-main {
     width: 50vh;
     margin: 100px auto;
     background-color: rgba(240, 248, 255, 0.6);
@@ -26,20 +27,23 @@ body{
 
 }
 
-.app-main > *{
+.app-main>* {
     margin-bottom: 20px;
 }
-.app-title{
+
+.app-title {
     color: black;
     text-align: center;
     font-weight: bold;
     background: border-box;
-    background-color: #9bc9ea;
+    background-color: #5eaae0;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 5px 5px 15px ;
 }
 
-.input-box{
+
+.input-box {
     width: 100%;
     height: 40px;
     background-color: rgba(255, 255, 255, 0.8);
@@ -47,10 +51,10 @@ body{
     outline: none;
     border-radius: 10px;
     font-size: 1.2rem;
-         
+    box-shadow: 5px 5px 15px ;
 }
 
-.input-box:focus{
+.input-box:focus {
     background-color: white;
 }
 
@@ -61,41 +65,42 @@ body{
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     height: 26vh;
+    box-shadow: 5px 5px 15px ;
 }
 
-.location-details{
+.location-details {
     font-weight: bold;
 }
 
-.weather-status{
+.weather-status {
     padding: 20px;
 }
 
-.temp{
+.temp {
     font-size: 50px;
     font-weight: 600;
     margin: 20px 0;
     text-shadow: 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.weather{
+.weather {
     font-size: 12pt;
     font-weight: 600;
 }
 
-#img{
+#img {
     background-size: cover;
     background-position: 100px;
 }
+
 @media screen and (max-width: 600px) {
-    .app-main{
-       width: 90%;
-       margin-top: 50%;
-} 
+    .app-main {
+        width: 90%;
+    }
 }
 
 @media screen and (max-height: 844px) {
-    .weather-body{
+    .weather-body {
         height: 50%;
     }
 
