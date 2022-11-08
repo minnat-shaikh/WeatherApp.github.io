@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
 
   const sample = async () => {
     document.querySelector(".info-txt").style.display = "block";
-    let delayres = await delay(1500);
+    let delayres = await delay(3000);
     document.querySelector(".info-txt").style.display = "none";
   };
   sample();
