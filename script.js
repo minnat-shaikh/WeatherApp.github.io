@@ -46,7 +46,7 @@ searchInputBox.addEventListener("keypress", (event) => {
 
     const sample = async () => {
       document.querySelector(".info-txt").style.display = "block";
-      let delayres = await delay(950);
+      let delayres = await delay(1500);
       document.querySelector(".info-txt").style.display = "none";
     };
     sample();
