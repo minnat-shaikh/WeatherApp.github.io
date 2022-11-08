@@ -9,6 +9,16 @@ const searchInputBox = document.getElementById("input-box");
 window.addEventListener("load", () => {
   let long;
   let lat;
+  const delay = (delayInms) => {
+    return new Promise((resolve) => setTimeout(resolve, delayInms));
+  };
+
+  const sample = async () => {
+    document.querySelector(".info-txt").style.display = "block";
+    let delayres = await delay(1000);
+    document.querySelector(".info-txt").style.display = "none";
+  };
+  sample();
 
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -22,6 +32,24 @@ window.addEventListener("load", () => {
         })
         .then(showWeatherReport);
     });
+  }
+});
+
+// Show preloader
+searchInputBox.addEventListener("keypress", (event) => {
+  if (event.keyCode == 13) {
+    console.log(searchInputBox.value);
+    getWeatherReport(searchInputBox.value);
+    const delay = (delayInms) => {
+      return new Promise((resolve) => setTimeout(resolve, delayInms));
+    };
+
+    const sample = async () => {
+      document.querySelector(".info-txt").style.display = "block";
+      let delayres = await delay(950);
+      document.querySelector(".info-txt").style.display = "none";
+    };
+    sample();
   }
 });
 
