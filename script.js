@@ -30,23 +30,15 @@ window.addEventListener("load", () => {
   }
 });
 
-// Show preloader
+// Event listener Function on Keypress
 searchInputBox.addEventListener("keypress", (event) => {
   if (event.keyCode == 13) {
     console.log(searchInputBox.value);
     getWeatherReport(searchInputBox.value);
     const delay = (delayInms) => {
       return new Promise((resolve) => setTimeout(resolve, delayInms));
+      document.querySelector(".weather-body").style.display = "block";
     };
-  }
-});
-
-// Event listener Function on Keypress
-searchInputBox.addEventListener("keypress", (event) => {
-  if (event.keyCode == 13) {
-    console.log(searchInputBox.value);
-    getWeatherReport(searchInputBox.value);
-    document.querySelector(".weather-body").style.display = "block";
   }
 });
 
