@@ -13,21 +13,16 @@ window.addEventListener("load", () => {
     return new Promise((resolve) => setTimeout(resolve, delayInms));
   };
 
-  const sample = async () => {
-    document.querySelector(".info-txt").style.display = "block";
-    let delayres = await delay(3000);
-    document.querySelector(".info-txt").style.display = "none";
-  };
-  sample();
-
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition((position) => {
       long = position.coords.longitude;
       lat = position.coords.latitude;
+      document.querySelector(".info-txt").style.display = "block";
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${weatherApi.key}&units=metric`
       )
         .then((weather) => {
+          document.querySelector(".info-txt").style.display = "none";
           return weather.json();
         })
         .then(showWeatherReport);
@@ -43,13 +38,6 @@ searchInputBox.addEventListener("keypress", (event) => {
     const delay = (delayInms) => {
       return new Promise((resolve) => setTimeout(resolve, delayInms));
     };
-
-    const sample = async () => {
-      document.querySelector(".info-txt").style.display = "block";
-      let delayres = await delay(1500);
-      document.querySelector(".info-txt").style.display = "none";
-    };
-    sample();
   }
 });
 
@@ -64,8 +52,10 @@ searchInputBox.addEventListener("keypress", (event) => {
 
 // Get Weather Report
 function getWeatherReport(city) {
+  document.querySelector(".info-txt").style.display = "block";
   fetch(`${weatherApi.baseUrl}?q=${city}&appid=${weatherApi.key}&units=metric`)
     .then((weather) => {
+      document.querySelector(".info-txt").style.display = "none";
       return weather.json();
     })
     .then(showWeatherReport);
@@ -73,7 +63,7 @@ function getWeatherReport(city) {
 
 // Show Weather Report
 function showWeatherReport(weather) {
-  console.log(weather);
+  if(weather.cod == "404") return alert('City not found');
 
   let city = document.getElementById("city");
   city.innerHTML = `${weather.name}, ${weather.sys.country}`;
